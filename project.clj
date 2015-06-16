@@ -4,6 +4,4 @@
                  [com.amazonaws/aws-lambda-java-core "1.0.0"]
                  [com.amazonaws/aws-lambda-java-events "1.0.0"]]
   :java-source-paths ["src-java"]
-  :uberjar-name "lambada.jar"
-  :profiles {:uberjar {;:aot [lambada.spike]
-                       }})
+  :uberjar-name "lambada.jar")

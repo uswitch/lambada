@@ -5,4 +5,5 @@
 
 (defn my-lambda-fn
   [in out ctx]
-  (println "HELLO FROM CLOJURE :)"))
+  (println "HELLO FROM CLOJURE :)")
+  (println (.getClientContext ctx)))

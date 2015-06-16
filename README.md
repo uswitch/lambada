@@ -17,5 +17,16 @@ $ aws lambda create-function \
     --runtime java8 \
     --timeout 15 \
     --memory-size 512
+...
+
+$ aws lambda invoke \
+    --invocation-type RequestResponse \
+    --function-name clojure-lambda \
+    --region eu-west-1 \
+    --log-type Tail \
+    --client-context $(echo '{"custom": {"handler": "lambada.spike/my-lambda-fn"}}' | base64 -w 0) \
+    --payload '{"key1":"value1", "key2":"value2", "key3":"value3"}' \
+    outfile.txt
+...
 
 ```
