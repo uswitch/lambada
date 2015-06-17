@@ -1,19 +1,29 @@
 # lambada
 
-Spike for running clojure on AWS lambda.
+Create AWS Lambda functions in clojure.
 
 ## Usage
 
+```clojure
+(ns my.lambda.project
+  (:require [uswitch.lambada.core :refer [deflambdafn]]))
+
+(deflambdafn my.lambda.project.MyLambdaFn
+  [in out ctx]
+  (println "OMG I'm running in the cloud!!!111oneone"))
 ```
-$ lein uberjar
+
+
+
+```
 ...
 
 $ aws lambda create-function \
     --region eu-west-1 \
-    --function-name clojure-lambda \
+    --function-name my-lambda-fn \
     --zip-file fileb://$(pwd)/target/lambada.jar \
     --role arn:aws:iam::account-id:role/lambda_basic_execution \
-    --handler lambada.ClojureLambdaFn \
+    --handler my.lambda.project.MyLambdaFn \
     --runtime java8 \
     --timeout 15 \
     --memory-size 512
@@ -21,11 +31,10 @@ $ aws lambda create-function \
 
 $ aws lambda invoke \
     --invocation-type RequestResponse \
-    --function-name clojure-lambda \
+    --function-name my-lambda-fn \
     --region eu-west-1 \
     --log-type Tail \
-    --client-context $(echo '{"custom": {"handler": "lambada.spike/my-lambda-fn"}}' | base64 -w 0) \
-    --payload '{"key1":"value1", "key2":"value2", "key3":"value3"}' \
+    --payload '{"some":"input"}' \
     outfile.txt
 ...
 
