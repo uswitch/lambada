@@ -7,8 +7,7 @@
   [name args & body]
   (assert (= (count args) 3) "lambda function must have exactly three args")
   (let [prefix (gensym)
-        handleRequestMethod (symbol (str prefix "handleRequest"))
-        invokeMethod (symbol (str prefix "invoke"))]
+        handleRequestMethod (symbol (str prefix "handleRequest"))]
     `(do
        (gen-class
         :name   ~name
