@@ -27,7 +27,7 @@ interface using the args and body provided.
 
 Simplest way to deploy is to create an uberjar using leiningen or boot
 and then use that as the JAR you upload to AWS Lambda. Assuming you
-have an uberjar called `my-lambda-project.jar` in target, the
+have an uberjar called `my-lambda-project.jar` in `target`, the
 following commands will do the job:
 
 ```
