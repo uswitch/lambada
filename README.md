@@ -2,6 +2,10 @@
 
 Create AWS Lambda functions in clojure.
 
+Current version:
+
+[![Clojars Project](http://clojars.org/uswitch/lambada/latest-version.svg)](http://clojars.org/uswitch/lambada)
+
 ## Usage
 
 ```clojure
