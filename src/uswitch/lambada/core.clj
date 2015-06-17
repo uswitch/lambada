@@ -18,11 +18,3 @@
        (defn ~handleRequestMethod
          ~(into ['this] args)
          ~@body))))
-
-
-
-
-
-
-
-
