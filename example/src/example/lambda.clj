@@ -12,4 +12,5 @@
   [in out ctx]
   (let [event (json/read (io/reader in))
         res (handle-event event)]
-    (json/write res (io/writer out))))
+    (with-open [w (io/writer out)]
+      (json/write res w))))
