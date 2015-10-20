@@ -11,5 +11,7 @@
 (deflambdafn example.lambda.MyLambdaFn
   [in out ctx]
   (let [event (json/read (io/reader in))
-        res (handle-event event)]
-    (json/write res (io/writer out))))
+        res (handle-event event)
+        w (io/writer out)]
+    (json/write res w)
+    (.flush w)))
