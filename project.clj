@@ -1,4 +1,4 @@
-(defproject uswitch/lambada "0.1.1-SNAPSHOT"
+(defproject uswitch/lambada "0.1.1"
   :description "The messy parts for running clojure on AWS Lambda."
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
