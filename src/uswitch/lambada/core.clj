@@ -1,6 +1,5 @@
 (ns uswitch.lambada.core
-  (:import [uswitch.lambada.ClojureLambdaBase]
-           [com.amazonaws.services.lambda.runtime Context LambdaLogger RequestStreamHandler]))
+  (:import [com.amazonaws.services.lambda.runtime RequestStreamHandler]))
 
 (defmacro deflambdafn
   "Create a named class that can be invoked as a AWS Lambda function."
@@ -10,9 +9,8 @@
         handleRequestMethod (symbol (str prefix "handleRequest"))]
     `(do
        (gen-class
-        :name   ~name
+        :name ~name
         :prefix ~prefix
-        :extends uswitch.lambada.ClojureLambdaBase
         :implements [com.amazonaws.services.lambda.runtime.RequestStreamHandler])
        (defn ~handleRequestMethod
          ~(into ['this] args)
