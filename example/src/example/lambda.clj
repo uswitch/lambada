@@ -6,7 +6,9 @@
 (defn handle-event
   [event]
   (println "Got the following event: " (pr-str event))
-  {:status "ok"})
+  {:statusCode 200
+   :headers {}
+   :body "ok sir"})
 
 (deflambdafn example.lambda.MyLambdaFn
   [in out ctx]
