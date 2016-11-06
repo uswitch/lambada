@@ -5,6 +5,7 @@
 
 (defn handle-event
   [event]
+  (println "Got the following event: " (pr-str event))
   {:statusCode 200
    :headers {}
    :body "ok sir"})
